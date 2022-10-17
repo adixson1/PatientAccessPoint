@@ -1,1 +1,122 @@
-<p>doctor-info works!</p>
+<br>
+<br>
+<br>
+
+<div class="col-lg-6 offset-lg-3 ">
+    <form [formGroup]="doctorInfoForm" (ngSubmit)="onSubmit()">
+      <h2>Doctor Information</h2>
+    <br>
+      <div formGroupName="address" class="form-group">
+        <h4>Dr. Sandra</h4>
+    <p> <i>Dr. Sandra was raised in Atlanta, Georgia and went to 
+        Emory University, graduating in 2007 to become a Board 
+        Certified Dermatologist. She specializes in treating different
+         types of skin cancer, and treating acne issues as well. Her main office is
+         located in the Vinings area.
+    </i></p>
+    <br>
+    
+    <h4>Dr. Nathan</h4>
+    <p> <i>Dr. Nathan was raised in Tampa, Florida and went to 
+        Univeristy of Florida, graduating with an MD in 2015 to become a 
+        General Medicine Physician. He treats many different types of sicknesses,
+         including the flu, common cold, rashes, and infections. In his freetime, you
+         wil find he volunteering at his local food bank giving back to his community.
+         Dr. Nathan's office is located in Kennesaw off of 2434 Barrett Parkway.
+    </i></p>
+    <br>
+
+    <h4>Dr. Ashley</h4>
+    <p> <i>Dr. Ashley is a born and raised Georgian. He grew up in Valdosta, Georgia and attended 
+        Mercer University for his MD. He completed his residency of Neurology in University of Valdosta and 
+        then decided to move to Sandy Springs to start his practice in 2010. He is rated one of the top 
+        in Atlanta to treat spinal paralysis and spinal cord injuries, brain tumors, epilepsy, stroke, 
+        multiple schlerosis (MS), and Parkinsons disease. His office is located in Sandy Springs, right off of 
+        Hammond Drive.
+
+    </i></p>
+    <br>
+
+    <h4>Dr. Nguyen</h4>
+    <p> <i>Dr. Nguyen was raised in Louisville, Kentucky and graduated from University
+        of Kentucky in cardiac medicine. He has been treating patients in the Atlanta Metro
+        area for over 20 years and has plenty of experience with different cardiac issues
+        including heart failure, abnormal heart rhythymns, and heart problems since birth.
+        Dr Nguyen's office is located in East Cobb off of Roswell Road.
+    </i></p>
+    <br>
+
+    <h4>Dr. Gupta</h4>
+    <p> <i>Dr. Gupta is an Orthopaedic doctor that specializes in sports related injuries. 
+        He graduated and receieved residency from John Hopkins University specializing in orthopaedics.
+        He has over 15 years of experience treating arthritis, osteoporosis, muscular dystrophy, 
+        carpal tunnel syndrome, tennis elbow. He has voted to be one of the top doctors in Georgia for orthopaedics
+        in 2019 and 2020. His office is located in Austell, Georgia. 
+    </i></p>
+    <br>
+    <h4>Schedule a Visit</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="first-name">First Name: </label>
+        <input id="first-name" type="text" formControlName="firstName" class="form-control" >
+        </div>
+        <div class="col-md-6">
+          <label for="last-name">Last Name: </label>
+        <input id="last-name" type="text" formControlName="lastName" class="form-control">
+        </div>
+    
+      </div>
+      <div class="row">
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-6">
+        <label for="phone-number">Phone Number: </label>
+        <input id="phone-number" type="text" formControlName="phoneNumber" class="form-control">
+      <label for="email">Email: </label>
+        <input id="email" type="text" formControlName="email" class="form-control">
+      <div class="form-group col-md-2">
+        <label for="inputReason">Reason for Visit: </label>
+        <select id="inputReason" class="form-control">
+          <option selected>Select</option>
+          <option> Consultation</option>
+          <option> Routine Check-Up</option>
+          <option> Urgent</option>
+          <option> Follow Up</option>
+        </select>
+      </div>
+      <label for="brief">Brief Description of Symptoms Experienced: </label>
+      <input id="brief" type="text" formControlName="brief" class="form-control">
+    </div>
+        <div class="form-group col-md-2">
+          <label for="inputDoctor">Doctor: </label>
+          <select id="inputDoctor" class="form-control">
+            <option selected>Select</option>
+            <option> Dr. Sandra</option>
+            <option> Dr. Nathan</option>
+            <option> Dr. Ashley</option>
+            <option> Dr. Nguyen</option>
+            <option> Dr. Gupta</option>
+          </select>
+        </div>
+    </div>
+      
+        <br>
+   
+         
+      </div>
+      
+        <div formGroupName="emergencyContact" class="form-group">
+          <h5><i>Please note if you are having an emergency, please call 911
+            or go to your nearest emergency room. This form is for non life threatening
+            matters.</i>
+          </h5>
+         
+    
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <br>
+
+    <br>
+
+    <br>
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-doctor-info',
@@ -12,4 +13,20 @@ export class DoctorInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  doctorInfoForm= new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl(''),
+    phoneNumber: new FormControl(''),
+   doctor: new FormControl(''),
+        
+       
+        
+       
+  });
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.doctorInfoForm.value);
+  }
 }
