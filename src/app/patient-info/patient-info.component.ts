@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { PatientService } from 'src/patient.service';
 
 @Component({
   selector: 'app-patient-info',
@@ -7,8 +8,23 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./patient-info.component.css']
 })
 export class PatientInfoComponent implements OnInit {
+@Input() firstName: string= "";
+@Input() lastName: string="";
+@Input() dob: string="";
+@Input() phoneNumber: string="";
+@Input() maritalStatus: string="";
+@Input() street: string="";
+@Input() city: string="";
+@Input() zip: string="";
+@Input() state: string="";
+@Input() primaryInsurance: string="";
+@Input() groupNumber: string="";
+@Input() idNumber: string="";
+@Input() socialSecurityNumber: string="";
+@Input() relationship: string="";
 
-  constructor() { }
+
+  constructor(private _myService: PatientService) { }
 
   ngOnInit(): void {
   }
@@ -33,8 +49,8 @@ export class PatientInfoComponent implements OnInit {
           relationship: new FormControl('')
         }),
         emergencyContact: new FormGroup({
-          firstName: new FormControl(''),
-          lastName: new FormControl(''),
+          firstName2: new FormControl(''),
+          lastName2: new FormControl(''),
           phoneNumber: new FormControl(''),
           relationshipToPatient: new FormControl('')
         })
@@ -42,6 +58,9 @@ export class PatientInfoComponent implements OnInit {
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
-    console.warn(this.patientInfoForm.value);
+    console.log(this.patientInfoForm.value);
+    this._myService.addPatients(this.firstName , this.lastName, this.dob, this.phoneNumber,
+      this.maritalStatus, this.street, this.city, this.state, this.zip, this.primaryInsurance, this.groupNumber,
+      this.idNumber, this.socialSecurityNumber);
   }
 }

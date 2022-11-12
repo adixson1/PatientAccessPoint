@@ -1,5 +1,9 @@
 <app-header></app-header>
-
+<div>
+    <ul *ngFor ="let patient of patients let i = index">
+        <li> {{patient.id}}: {{patient.firstName}} {{patient.lastName}} (index {{i}})</li>
+    </ul>
+</div>
 
 <router-outlet></router-outlet>
 
