@@ -54,6 +54,7 @@
         in 2019 and 2020. His office is located in Austell, Georgia. 
     </i></p>
     <br>
+    <form [formGroup]="doctorInfoForm" (ngSubmit)="onSubmit()" #myForm="ngForm">
     <h4>Schedule a Visit</h4>
       <div class="row">
         <div class="col-md-6">
@@ -103,7 +104,7 @@
         <br>
    
          
-      </div>
+      
       
         <div formGroupName="emergencyContact" class="form-group">
           <h5><i>Please note if you are having an emergency, please call 911
