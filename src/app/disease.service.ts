@@ -16,9 +16,10 @@ export class DiseaseService {
         return this.http.get('http://localhost:8000/Diseases');
     }
       //Uses http.post() to post data 
-      addDiseases(firstName: string, lastName: string) {
-        this.http.post('http://localhost:8000/patients', {
-            firstName, lastName
+      addDiseases(firstName: string, lastName: string, dob: string, Asthma: string,
+        Migrane: string, Pregnancy: string, HeartDisease:string, BloodPressure:string) {
+        this.http.post('http://localhost:8000/diseases', {
+            firstName, lastName, dob, Asthma, Migrane, Pregnancy, HeartDisease, BloodPressure
         })
             .subscribe((responseData) => {
                 console.log(responseData);
@@ -31,11 +32,12 @@ export class DiseaseService {
             });
         location.reload();
     }
-    updateDisease(DiseasesId: string, firstName: string, lastName: string) {
+    updateDisease(DiseasesId: string, firstName: string, lastName: string,dob: string, Asthma: string,
+        Migrane: string, Pregnancy: string, HeartDisease:string, BloodPressure:string) {
         //request path http://localhost:8000/Patientss/5xbd456xx 
         //first and last names will be send as HTTP body parameters 
         this.http.put("http://localhost:8000/diseases/" +
-            DiseasesId, { firstName, lastName })
+            DiseasesId, { firstName, lastName, dob, Asthma, Migrane, Pregnancy, HeartDisease, BloodPressure })
             .subscribe(() => {
                 console.log('Updated: ' + DiseasesId);
             });

@@ -1,4 +1,5 @@
 <br>
+<form [formGroup]="SicknessDiseaseInfoForm" (ngSubmit)="onSubmit()" #myForm="ngForm">
 <div class="col-lg-6 offset-lg-3 ">
     <br>
     <h2>Sickness/Disease Information</h2>
@@ -7,49 +8,50 @@
 <br>
 
 <label for="first-name">First Name: </label>
-<input id="first-name" type="text" formControlName="firstName" class="form-control">
+<input id="first-name" type="text" formControlName="firstName" [(ngModel)]="firstName" class="form-control">
 
 <label for="last-name">Last Name: </label>
-<input id="last-name" type="text" formControlName="lastName" class="form-control">
+<input id="last-name" type="text" formControlName="lastName" [(ngModel)]="lastName"class="form-control">
 
 <label for="dob">Date of Birth: </label>
-<input id="dob" type="text" formControlName="dob" class="form-control">
+<input id="dob" type="date" formControlName="dob" [(ngModel)]="dob" class="form-control">
 
 <br>
 <h4>Pre-Exsisting Condtions</h4>
 <p> Please select yes or no if these conditions apply to you:</p>
 
 <label for="Asthma">Asthma: </label>
-<select id="Asthma" type="text" formControlName="Asthma" class="form-control">
+<select id="Asthma" type="text" formControlName="Asthma" [(ngModel)]="Asthma" class="form-control">
   <option value="Yes">Yes</option>
   <option value="No">No</option>
   </select>
 
 <label for="Migraine">Migraine: </label>
-<select id="Migraine" type="text" formControlName="Migraine" class="form-control">
+<select id="Migraine" type="text" formControlName="Migraine" [(ngModel)]="Migrane" class="form-control">
   <option value="Yes">Yes</option>
   <option value="No">No</option>
   </select>
 
 <label for="Pregnancy">Are you or could you be pregnant: </label>
-<select id="Pregnancy" type="text" formControlName="Pregnancy" class="form-control">
+<select id="Pregnancy" type="text" formControlName="Pregnancy" [(ngModel)]="Pregnancy" class="form-control">
     <option value="Yes">Yes</option>
     <option value="No">No</option>
   </select>
 
 <label for="HeartDisease">Heart Disease: </label>
-<select id="HeartDisease" type="text" formControlName="HeartDisease" class="form-control">
+<select id="HeartDisease" type="text" formControlName="HeartDisease" [(ngModel)]="HeartDisease" class="form-control">
     <option value="Yes">Yes</option>
     <option value="No">No</option>
   </select>
 
 <label for="BloodPressure">High Blood Pressure: </label>
-<select id="BloodPressure" type="text" formControlName="BloodPressure" class="form-control">
+<select id="BloodPressure" type="text" formControlName="BloodPressure" [(ngModel)]="BloodPressure" class="form-control">
     <option value="Yes">Yes</option>
     <option value="No">No</option>
   </select>
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
+</form>
 <br>
 <br>
 <br>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { DiseaseService } from '../disease.service';
 
 @Component({
   selector: 'app-sickness-disease-info',
@@ -8,10 +9,19 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SicknessDiseaseInfoComponent implements OnInit {
 
-  constructor() { }
+  @Input() firstName: string = "";
+  @Input() lastName: string = "";
+  @Input() dob: string = "";
+  @Input() Asthma: string = "";
+  @Input() Migrane: string = "";
+  @Input() Pregnancy: string = "";
+  @Input() HeartDisease: string = "";
+  @Input() BloodPressure: string = "";
+
+  constructor(private _myService: DiseaseService) { }
   ngOnInit(): void {
   }
-  SicknessDiseaseInfoForm= new FormGroup({
+  SicknessDiseaseInfoForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     dob: new FormControl(''),
@@ -27,5 +37,7 @@ export class SicknessDiseaseInfoComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.SicknessDiseaseInfoForm.value);
+    this._myService.addDiseases(this.firstName,this.lastName,this.dob,this.Asthma,
+      this.Migrane,this.Pregnancy,this.HeartDisease,this.BloodPressure)
   }
 }

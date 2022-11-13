@@ -5,7 +5,12 @@ const mongoose = require('mongoose');
 const diseaseSchema = new mongoose.Schema({
     firstName:  { type: String},
     lastName:  { type: String},
-    dateOfBirth: {type: Date}
+    dob: {type: Date},
+    Asthma: { type: String},
+    Migrane: { type: String},
+    Pregnancy: { type: String},
+    HeartDisease: { type: String},
+    BloodPressure: { type: String}
 });
 
 //use the blueprint to create the model 

@@ -156,7 +156,13 @@ app.post('/diseases', (req, res, next) => {
     // create a new patient variable and save request’s fields 
     const disease = new Diseases({
         firstName: req.body.firstName,
-        lastName: req.body.lastName
+        lastName: req.body.lastName,
+        dob: req.body.dob,
+        Asthma: req.body.Asthma,
+        Migrane: req.body.Migrane,
+        Pregnancy: req.body.Pregnancy,
+        HeartDisease: req.body.HeartDisease,
+        BloodPressure: req.body.BloodPressure
     });
     //send the document to the database 
     disease.save()
