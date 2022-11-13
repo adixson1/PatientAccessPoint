@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, } from '@angular/forms';
-import { PatientService } from '../patient.service';
+import { AppointmentService } from '../appointment.service';
 
 @Component({
   selector: 'app-appointment',
@@ -10,39 +10,41 @@ import { PatientService } from '../patient.service';
 
 export class AppointmentComponent implements OnInit {
 
- @Input() firstName: string= "";
-@Input() lastName: string="";
-@Input() dateOfBirth: string="";
-@Input() appointmentDate: string="";
-@Input() department: string="";
-@Input() message: string="";
+  @Input() firstName: string = "";
+  @Input() lastName: string = "";
+  @Input() dateOfBirth: string = "";
+  @Input() appointmentDate: string = "";
+  @Input() selectDepartment: string = "";
+  @Input() selectDoctor: string="";
+  @Input() messageOptional: string = "";
 
-  constructor(private _myService: PatientService) { }
+  constructor(private _myService: AppointmentService) { }
 
   ngOnInit(): void {
   }
 
-appointmentForm= new FormGroup({
-  firstName: new FormControl(''),
-  lastName: new FormControl(''),
-  dateOfBirth: new FormControl(''),
-      appointmentDate: new FormGroup({
-        date: new FormControl(''),
-      }),
-      selectDepartment: new FormGroup({
-        department: new FormControl(''),
-      }),
-      selectDoctor: new FormGroup({
-        Doctor: new FormControl(''),
-      }),
-      messageOptional: new FormGroup({
-        message: new FormControl(''),
-      })
-});
+  appointmentForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    dateOfBirth: new FormControl(''),
+    appointmentDate: new FormGroup({
+      date: new FormControl(''),
+    }),
+    selectDepartment: new FormGroup({
+      department: new FormControl(''),
+    }),
+    selectDoctor: new FormGroup({
+      Doctor: new FormControl(''),
+    }),
+    messageOptional: new FormGroup({
+      message: new FormControl(''),
+    })
+  });
 
-onSubmit() {
-  // TODO: Use EventEmitter with form value
-  console.log(this.appointmentForm.value);
-  this._myService.addAppointments(this.firstName , this.lastName, this.dateOfBirth);
-}
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.appointmentForm.value);
+    this._myService.addAppointments(this.firstName, this.lastName, this.dateOfBirth, this.appointmentDate,
+      this.selectDepartment, this.selectDoctor, this.messageOptional);
+  }
 }

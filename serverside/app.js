@@ -90,7 +90,12 @@ app.post('/appointments', (req, res, next) => {
     const appointment = new Appointment({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        dateOfBirth: req.body.dob
+        dateOfBirth: req.body.dateOfBirth,
+        appointmentDate: req.body.appointmentDate,
+        selectDepartment: req.body.selectDepartment,
+        selectDoctor: req.body.selectDoctor,
+        messageOptional: req.body.messageOptional
+
     });
     //send the document to the database 
     appointment.save()

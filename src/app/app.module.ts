@@ -15,6 +15,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DoctorService } from './doctor.service';
+import { AppointmentService } from './appointment.service';
+import { DiseaseService } from './disease.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,7 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     BrowserAnimationsModule
   ],
-  providers: [PatientService],
+  providers: [PatientService, DoctorService, AppointmentService, DiseaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

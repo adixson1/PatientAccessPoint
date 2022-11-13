@@ -93,9 +93,9 @@ export class PatientService {
     }
 
      //Uses http.post() to post data 
-     addDoctors(firstName: string, lastName: string, email: string) {
+     addDoctors(firstName1: string, lastName1: string, email1: string) {
         this.http.post('http://localhost:8000/doctors', {
-            firstName, lastName, email
+            firstName1, lastName1, email1
         })
             .subscribe((responseData) => {
                 console.log(responseData);

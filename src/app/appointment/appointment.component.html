@@ -27,18 +27,18 @@
    
         <br>
 
-        <div formGroupName="appointmentDate" class="form-group">
+        <div formGroupName="appointmentDate" [(ngModel)]="appointmentDate" class="form-group">
           <h4>Appointment Date</h4>
           <p><i>Please select requested appointment date below.</i></p>
         </div>
         <div class="form-group col-md-12">
           <label for="date">Date: </label>
-            <input id="date" type="date" formControlName="date" [(ngModel)]="appointmentDate" class="form-control">
+            <input id="date" type="date" formControlName="date" [(ngModel)]="dateOfBirth" class="form-control">
         </div>
       
         <br>
 
-        <div formGroupName="selectDepartment" class="form-group">
+        <div formGroupName="selectDepartment" [(ngModel)]="selectDepartment" class="form-group">
           <h4>Select Department</h4>
           <p><i>Please select requested department below.</i></p>
         </div>
@@ -46,14 +46,14 @@
         <div class="row">
           <div class="col-md-6">
           <label for="department">Department: </label>
-            <input id="department" type="text" formControlName="department" [(ngModel)]="department" class="form-control">
+            <input id="department" type="text" formControlName="department" [(ngModel)]="selectDepartment" class="form-control">
         </div>
         </div>
         </div>
        
         <br>
 
-        <div formGroupName="messageOptional" class="form-group">
+        <div formGroupName="messageOptional" [(ngModel)]="messageOptional"  class="form-group">
             <h4>Message (Optional):</h4>
             <p><i>Please use the space below to describe the suspected medical issue.</i></p>
           </div>
@@ -61,14 +61,15 @@
           <div class="row">
             <div class="col-md-6">
             <label for="message">Message: </label>
-              <input id="message" type="text" formControlName="message" [(ngModel)]="message" class="form-control">
+              <input id="message" type="text" formControlName="message" [(ngModel)]="messageOptional" class="form-control">
           </div>
         </div>
     </div>
     <br>
     <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-      <button type="submit" class="btn btn-primary">Submit</button>
+     
    
     </div>
     <br>
