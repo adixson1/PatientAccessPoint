@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PatientService } from 'src/patient.service';
+import { PatientService } from 'src/app/patient.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,9 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { DoctorInfoComponent } from './doctor-info/doctor-info.component';
 import { SicknessDiseaseInfoComponent } from './sickness-disease-info/sickness-disease-info.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { HomePageComponent } from './home-page/home-page.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [PatientService],
   bootstrap: [AppComponent]

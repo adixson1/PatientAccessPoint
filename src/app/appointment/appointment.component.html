@@ -2,7 +2,7 @@
 <br>
 <br>
 <div class="col-lg-6 offset-lg-3 ">
-    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" #myForm="ngForm">
       <h2>Patient Appointment Request</h2>
     
     <p> <i>Please fill in patient information below.</i></p>
@@ -11,17 +11,17 @@
       <div class="row">
         <div class="col-md-6">
           <label for="firstName">First Name: </label>
-        <input id="firstName" type="text" formControlName="firstName" class="form-control" >
+        <input id="firstName" type="text" formControlName="firstName" [(ngModel)]="firstName" class="form-control" >
         </div>
         <div class="col-md-6">
           <label for="lastName">Last Name: </label>
-        <input id="lastName" type="text" formControlName="lastName" class="form-control">
+        <input id="lastName" type="text" formControlName="lastName"[(ngModel)]="lastName" class="form-control">
         </div>
       </div>
       <div class="row">
       <div class="col-md-6">
         <label for="dateOfBirth">Date of Birth: </label>
-        <input id="dateOfBirth" type="date" formControlName="dateOfBirth" class="form-control">
+        <input id="dateOfBirth" type="date" formControlName="dateOfBirth"[(ngModel)]="dateOfBirth" class="form-control">
       </div>
       </div>
    
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group col-md-12">
           <label for="date">Date: </label>
-            <input id="date" type="date" formControlName="date" class="form-control">
+            <input id="date" type="date" formControlName="date" [(ngModel)]="appointmentDate" class="form-control">
         </div>
       
         <br>
@@ -46,7 +46,7 @@
         <div class="row">
           <div class="col-md-6">
           <label for="department">Department: </label>
-            <input id="department" type="text" formControlName="department" class="form-control">
+            <input id="department" type="text" formControlName="department" [(ngModel)]="department" class="form-control">
         </div>
         </div>
         </div>
@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-md-6">
             <label for="message">Message: </label>
-              <input id="message" type="text" formControlName="message" class="form-control">
+              <input id="message" type="text" formControlName="message" [(ngModel)]="message" class="form-control">
           </div>
         </div>
     </div>

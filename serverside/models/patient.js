@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 
 //define a schema/ blueprint NOTE: id is not a part of the schema 
 const patientSchema = new mongoose.Schema({
-    firstName:  { type: String, required: true},
-    lastName:  { type: String, required: true},
-    dob:  { type: Date, required: true},
-    phoneNumber:  { type: Number, required: true},
-    maritalStatus:  { type: String, required: true},
-    street: { type: String, required: true},
-    city:  { type: String, required: true},
-    zip:  { type: Number, required: true},
-    primaryInsurance:  { type: String, required: true},
-    groupNumber:  { type: String, required: true},
-    idNumber:  { type: Number, required: true},
-    socialSecurityNumber:  { type: Number, required: true},
-    relationship:  { type: String, required: false}
+    firstName:  { type: String},
+    lastName:  { type: String},
+    dob:  { type: Date},
+    phoneNumber:  { type: Number},
+    maritalStatus:  { type: String},
+    street: { type: String},
+    city:  { type: String},
+    zip:  { type: Number},
+    primaryInsurance:  { type: String},
+    groupNumber:  { type: String},
+    idNumber:  { type: Number},
+    socialSecurityNumber:  { type: Number},
+    relationship:  { type: String}
 });
 
 //use the blueprint to create the model 

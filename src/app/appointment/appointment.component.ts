@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, } from '@angular/forms';
+import { PatientService } from '../patient.service';
 
 @Component({
   selector: 'app-appointment',
@@ -9,7 +10,14 @@ import { FormControl, FormGroup, } from '@angular/forms';
 
 export class AppointmentComponent implements OnInit {
 
-  constructor() { }
+ @Input() firstName: string= "";
+@Input() lastName: string="";
+@Input() dateOfBirth: string="";
+@Input() appointmentDate: string="";
+@Input() department: string="";
+@Input() message: string="";
+
+  constructor(private _myService: PatientService) { }
 
   ngOnInit(): void {
   }
@@ -34,6 +42,7 @@ appointmentForm= new FormGroup({
 
 onSubmit() {
   // TODO: Use EventEmitter with form value
-  console.warn(this.appointmentForm.value);
+  console.log(this.appointmentForm.value);
+  this._myService.addAppoinments(this.firstName , this.lastName, this.dateOfBirth);
 }
 }

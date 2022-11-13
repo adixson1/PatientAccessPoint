@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { PatientService } from 'src/patient.service';
+import { PatientService } from 'src/app/patient.service';
 
 @Component({
   selector: 'app-patient-info',
@@ -9,7 +9,9 @@ import { PatientService } from 'src/patient.service';
 })
 export class PatientInfoComponent implements OnInit {
 @Input() firstName: string= "";
+@Input() firstName1: string= "";
 @Input() lastName: string="";
+@Input() lastName1: string="";
 @Input() dob: string="";
 @Input() phoneNumber: string="";
 @Input() maritalStatus: string="";

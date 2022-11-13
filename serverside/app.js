@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 //specify where to find the schema
 const Patient = require('./models/patient')
+const Appointment= require('./models/appointment')
+const Doctor= require('./models/doctor')
+const Disease=require('./models/disease')
+
 //connect and display the status 
 mongoose.connect('mongodb://localhost:27017/IT6203', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => { console.log("connected"); })
@@ -64,6 +68,97 @@ app.post('/patients', (req, res, next) => {
         //if error
         .catch(err => { console.log('Error: ' + err); });
 });
+
+//in the app.get() method below we add a path for the patients API 
+//by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
+app.get('/appointments', (req, res, next) => {
+
+    //call mongoose method find (MongoDB db.Patients.find())
+    Appointment.find()
+        //if data is returned, send data as a response 
+        .then(data => res.status(200).json(data))
+        //if error, send internal server error
+        .catch(err => {
+            console.log('Error: ${err}');
+            res.status(500).json(err);
+        });
+
+
+});
+app.post('/appointments', (req, res, next) => {
+    // create a new appointment variable and save request’s fields 
+    const appointment = new Appointment({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        dateOfBirth: req.body.dob
+    });
+    //send the document to the database 
+    appointment.save()
+        //in case of success
+        .then(() => { console.log('Success'); })
+        //if error
+        .catch(err => { console.log('Error: ' + err); });
+});
+//in the app.get() method below we add a path for the patients API 
+//by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
+app.get('/doctors', (req, res, next) => {
+
+    //call mongoose method find (MongoDB db.Patients.find())
+    Doctor.find()
+        //if data is returned, send data as a response 
+        .then(data => res.status(200).json(data))
+        //if error, send internal server error
+        .catch(err => {
+            console.log('Error: ${err}');
+            res.status(500).json(err);
+        });
+
+
+});
+app.post('/doctors', (req, res, next) => {
+    // create a new patient variable and save request’s fields 
+    const patient = new Doctor({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+    });
+    //send the document to the database 
+    doctor.save()
+        //in case of success
+        .then(() => { console.log('Success'); })
+        //if error
+        .catch(err => { console.log('Error: ' + err); });
+});
+
+//in the app.get() method below we add a path for the patients API 
+//by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
+app.get('/diseases', (req, res, next) => {
+
+    //call mongoose method find (MongoDB db.Patients.find())
+    Disease.find()
+        //if data is returned, send data as a response 
+        .then(data => res.status(200).json(data))
+        //if error, send internal server error
+        .catch(err => {
+            console.log('Error: ${err}');
+            res.status(500).json(err);
+        });
+
+
+});
+app.post('/diseases', (req, res, next) => {
+    // create a new patient variable and save request’s fields 
+    const disease = new Diseases({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+    });
+    //send the document to the database 
+    disease.save()
+        //in case of success
+        .then(() => { console.log('Success'); })
+        //if error
+        .catch(err => { console.log('Error: ' + err); });
+});
+
 
 //to use this middleware in other parts of the application
 module.exports = app;

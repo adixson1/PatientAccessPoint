@@ -2,37 +2,36 @@
 <br>
 <br>
 <div class="col-lg-6 offset-lg-3 ">
-<form [formGroup]="patientInfoForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="patientInfoForm" (ngSubmit)="onSubmit()" #myForm="ngForm">
   <h2>Patient Information</h2>
 
 <p> <i>Please fill out this form to the best of your ability and submit it to 
     save time on the day of your appointment. If you have any questions please 
     reach out to the office directly so that your questions can be answered.</i></p>
 <br>
-
   <div class="row">
     <div class="col-md-6">
       <label for="first-name">First Name: </label>
-    <input id="first-name" type="text" formControlName="firstName" class="form-control" >
+    <input id="first-name" type="text" formControlName="firstName" [(ngModel)]="firstName" class="form-control" >
     </div>
     <div class="col-md-6">
       <label for="last-name">Last Name: </label>
-    <input id="last-name" type="text" formControlName="lastName" class="form-control">
+    <input id="last-name" type="text" formControlName="lastName" [(ngModel)]="lastName" class="form-control">
     </div>
   </div>
   <div class="row">
   <div class="col-md-6">
     <label for="dob">Date of Birth: </label>
-    <input id="dob" type="text" formControlName="dob" class="form-control">
+    <input id="dob" type="date" formControlName="dob" [(ngModel)]="dob" class="form-control">
   </div>
   <div class="col-md-6">
     <label for="phone-number">Phone Number: </label>
-    <input id="phone-number" type="text" formControlName="phoneNumber" class="form-control">
+    <input id="phone-number" type="text" formControlName="phoneNumber" [(ngModel)]="phoneNumber"class="form-control">
   </div>
 </div>
     <div class="form-group col-md-4">
       <label for="inputState">Marital Status </label>
-      <select id="inputState" class="form-control">
+      <select id="inputState" class="form-control" [(ngModel)]="maritalStatus" >
         <option selected>Choose...</option>
         <option> Single</option>
         <option> Married</option>
@@ -45,20 +44,20 @@
     </div>
     <div class="form-group col-md-12">
       <label for="street">Street: </label>
-        <input id="street" type="text" formControlName="street" class="form-control">
+        <input id="street" type="text" formControlName="street" [(ngModel)]="street"class="form-control">
     </div>
     <div class="row">
     <div class="col-md-4">
       <label for="city">City: </label>
-        <input id="city" type="text" formControlName="city" class="form-control">
+        <input id="city" type="text" formControlName="city" [(ngModel)]="city" class="form-control" >
     </div>
     <div class="col-md-4">
       <label for="state">State: </label>
-        <input id="state" type="text" formControlName="state" class="form-control">
+        <input id="state" type="text" formControlName="state" [(ngModel)]="state" class="form-control">
     </div>
     <div class="col-md-4">
       <label for="zip">Zip Code: </label>
-      <input id="zip" type="text" formControlName="zip" class="form-control">
+      <input id="zip" type="text" formControlName="zip"  [(ngModel)]="zip" class="form-control">
     </div>
   </div>
   <br>
@@ -104,20 +103,20 @@
         <div class="row">
           <div class="col-md-6">
             <label for="primary-insurance">Primary Insurance: </label>
-        <input id="primary-insurance" type="text" formControlName="primaryInsurance" class="form-control">
+        <input id="primary-insurance" type="text" formControlName="primaryInsurance" [(ngModel)]="primaryInsurance"  class="form-control">
           </div>
           <div class="col-md-6">
             <label for="group-number">Group Number: </label>
-            <input id="group-number" type="text" formControlName="groupNumber" class="form-control">
+            <input id="group-number" type="text" formControlName="groupNumber" [(ngModel)]="groupNumber" class="form-control">
           </div>
           <div class="col-md-6">
             <label for="id-number">ID Number: </label>
-            <input id="id-number" type="text" formControlName="idNumber" class="form-control">
+            <input id="id-number" type="text" formControlName="idNumber" [(ngModel)]="idNumber"  class="form-control">
           </div>
           <div class="row">
             <div class="col-md-6">
               <label for="social-security">Social Security #: </label>
-              <input id="social-security" type="text" formControlName="socialSecurityNumber" class="form-control">
+              <input id="social-security" type="text" formControlName="socialSecurityNumber" [(ngModel)]="socialSecurityNumber"  class="form-control">
           </div>
           <div class="form-group col-md-4">
             <label for="relationship">Relationship to Patient: </label>
