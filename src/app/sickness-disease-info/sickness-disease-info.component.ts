@@ -23,4 +23,9 @@ export class SicknessDiseaseInfoComponent implements OnInit {
     HeartDisease: new FormControl(''),
     BloodPressure: new FormControl(''),
   })
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.SicknessDiseaseInfoForm.value);
+  }
 }

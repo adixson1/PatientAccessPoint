@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const doctorSchema = new mongoose.Schema({
     firstName:  { type: String},
     lastName:  { type: String},
-    dateOfBirth: {type: Date}
+    email: {type: String}
 });
 
 //use the blueprint to create the model 

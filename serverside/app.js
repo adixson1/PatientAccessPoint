@@ -99,6 +99,7 @@ app.post('/appointments', (req, res, next) => {
         //if error
         .catch(err => { console.log('Error: ' + err); });
 });
+
 //in the app.get() method below we add a path for the patients API 
 //by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
 app.get('/doctors', (req, res, next) => {
@@ -117,9 +118,10 @@ app.get('/doctors', (req, res, next) => {
 });
 app.post('/doctors', (req, res, next) => {
     // create a new patient variable and save request’s fields 
-    const patient = new Doctor({
+    const doctor = new Doctor({
         firstName: req.body.firstName,
-        lastName: req.body.lastName
+        lastName: req.body.lastName,
+        email: req.body.email
     });
     //send the document to the database 
     doctor.save()

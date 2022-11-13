@@ -43,6 +43,6 @@ appointmentForm= new FormGroup({
 onSubmit() {
   // TODO: Use EventEmitter with form value
   console.log(this.appointmentForm.value);
-  this._myService.addAppoinments(this.firstName , this.lastName, this.dateOfBirth);
+  this._myService.addAppointments(this.firstName , this.lastName, this.dateOfBirth);
 }
 }
