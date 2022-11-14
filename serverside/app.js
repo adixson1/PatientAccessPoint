@@ -91,7 +91,21 @@ app.get('/appointments', (req, res, next) => {
             console.log('Error: ${err}');
             res.status(500).json(err);
         });
-
+//find a appointment based on the id
+app.get('/appointments/:id', (req, res, next) => {
+    //call mongoose method findOne (MongoDB db.appointments.findOne())
+    Appointment.findOne({_id: req.params.id}) 
+        //if data is returned, send data as a response 
+        .then(data => {
+            res.status(200).json(data)
+            console.log(data);
+        })
+        //if error, send internal server error
+        .catch(err => {
+        console.log('Error: ${err}');
+        res.status(500).json(err);
+    });
+});
 
 });
 app.post('/appointments', (req, res, next) => {
@@ -120,6 +134,34 @@ app.delete("/appointments/:id", (req, res, next) => {
         console.log(result);
         res.status(200).json("Deleted!");
     });
+});
+//serve incoming put requests to /appointments 
+app.put('/appointments/:id', (req, res, next) => { 
+    console.log("id: " + req.params.id) 
+    // check that the parameter id is valid 
+    if (mongoose.Types.ObjectId.isValid(req.params.id)) { 
+        //find a document and set new first and last names 
+        Appointment.findOneAndUpdate( 
+            {_id: req.params.id}, 
+            {$set:{ 
+                firstName : req.body.firstName, 
+                lastName : req.body.lastName 
+            }}, 
+            {new:true} 
+        ) 
+        .then((appointment) => { 
+            if (appointment) { //what was updated 
+                console.log(appointment); 
+            } else { 
+                console.log("no data exist for this id"); 
+            } 
+        }) 
+        .catch((err) => { 
+            console.log(err); 
+        }); 
+    } else { 
+        console.log("please provide correct id"); 
+    } 
 });
 
 //in the app.get() method below we add a path for the patients API 

@@ -42,7 +42,7 @@ export class AppointmentService {
             });
     }
     //Uses http.get() to request data based on Patients id 
-    getAppointment(AppointmentsId: string) {
-        return this.http.get('http://localhost:8000/appointments/' + AppointmentsId);
+    getAppointment(appointmentsId: string) {
+        return this.http.get('http://localhost:8000/appointments/' + appointmentsId);
     }
 }
