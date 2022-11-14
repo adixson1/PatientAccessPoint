@@ -1,0 +1,11 @@
+
+    <h1>Appointment Info</h1>
+
+    <div>
+        <ul *ngFor ="let appointment of appointments let i = index">
+            <li> {{appointment._id}}: {{appointment.firstName}} {{appointment.lastName}} 
+                (index {{i}})<button mat-button color="warn" (click)="onDelete(appointment._id)">DELETE</button>
+                <button mat-button color="accent" [routerLink]="['/editappointment', appointment._id]">UPDATE</button></li>
+        </ul>
+      </div>
+    

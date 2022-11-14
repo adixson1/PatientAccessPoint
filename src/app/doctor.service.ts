@@ -16,19 +16,19 @@ getDoctors() {
 }
 
  //Uses http.post() to post data 
- addDoctors(firstName1: string, lastName1: string, email1: string) {
+ addDoctors(firstName1: string, lastName1: string, email1: string, reasonForVisit:string, symptoms: string, phoneNumber1:string, doctor:string) {
     this.http.post('http://localhost:8000/doctors', {
-        firstName1, lastName1, email1
+        firstName1, lastName1, email1, phoneNumber1, reasonForVisit, symptoms, doctor
     })
         .subscribe((responseData) => {
             console.log(responseData);
         });
 }
 
-deleteDoctor(DoctorsId: string) {
-    this.http.delete("http://localhost:8000/doctors/" + DoctorsId)
+deleteDoctor(doctorId: string) {
+    this.http.delete("http://localhost:8000/doctors/" + doctorId)
         .subscribe(() => {
-            console.log('Deleted: ' + DoctorsId);
+            console.log('Deleted: ' + doctorId);
         });
     location.reload();
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+
 const mongoose = require('mongoose');
 //specify where to find the schema
 const Patient = require('./models/patient')
@@ -17,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/IT6203', { useNewUrlParser: true, us
 app.use((req, res, next) => {
     console.log('This line is always called');
     res.setHeader('Access-Control-Allow-Origin', '*'); //can connect from any host
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS'); //allowable methods
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS, DELETE'); //allowable methods
     res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
     next();
 });
@@ -69,6 +70,14 @@ app.post('/patients', (req, res, next) => {
         .catch(err => { console.log('Error: ' + err); });
 });
 
+//:id is a dynamic parameter that will be extracted from the URL
+app.delete("/patients/:id", (req, res, next) => {
+    Patient.deleteOne({ _id: req.params.id }).then(result => {
+        console.log(result);
+        res.status(200).json("Deleted!");
+    });
+});
+
 //in the app.get() method below we add a path for the patients API 
 //by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
 app.get('/appointments', (req, res, next) => {
@@ -105,6 +114,14 @@ app.post('/appointments', (req, res, next) => {
         .catch(err => { console.log('Error: ' + err); });
 });
 
+//:id is a dynamic parameter that will be extracted from the URL
+app.delete("/appointments/:id", (req, res, next) => {
+    Appointment.deleteOne({ _id: req.params.id }).then(result => {
+        console.log(result);
+        res.status(200).json("Deleted!");
+    });
+});
+
 //in the app.get() method below we add a path for the patients API 
 //by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
 app.get('/doctors', (req, res, next) => {
@@ -124,9 +141,13 @@ app.get('/doctors', (req, res, next) => {
 app.post('/doctors', (req, res, next) => {
     // create a new patient variable and save request’s fields 
     const doctor = new Doctor({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email
+        firstName1: req.body.firstName1,
+        lastName1: req.body.lastName1,
+        email1: req.body.email1,
+        phoneNumber1: req.body.phoneNumber1,
+        symptoms: req.body.symptoms,
+        reasonForVisit: req.body.reasonForVisit,
+        doctor: req.body.doctor
     });
     //send the document to the database 
     doctor.save()
@@ -134,6 +155,13 @@ app.post('/doctors', (req, res, next) => {
         .then(() => { console.log('Success'); })
         //if error
         .catch(err => { console.log('Error: ' + err); });
+});
+
+app.delete("/doctors/:id", (req, res, next) => {
+    Doctor.deleteOne({ _id: req.params.id }).then(result => {
+        console.log(result);
+        res.status(200).json("Deleted!");
+    });
 });
 
 //in the app.get() method below we add a path for the patients API 

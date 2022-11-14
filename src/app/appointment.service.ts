@@ -25,10 +25,10 @@ export class AppointmentService {
                 console.log(responseData);
             });
     }
-    deleteAppointment(AppointmentsId: string) {
-        this.http.delete("http://localhost:8000/appointments/" + AppointmentsId)
+    deleteAppointment(appointmentId: string) {
+        this.http.delete("http://localhost:8000/appointments/" + appointmentId)
             .subscribe(() => {
-                console.log('Deleted: ' + AppointmentsId);
+                console.log('Deleted: ' + appointmentId);
             });
         location.reload();
     }

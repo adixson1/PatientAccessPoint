@@ -25,10 +25,10 @@ export class DiseaseService {
                 console.log(responseData);
             });
     }
-    deleteDisease(DiseasesId: string) {
-        this.http.delete("http://localhost:8000/diseases/" + DiseasesId)
+    deleteDisease(diseaseId: string) {
+        this.http.delete("http://localhost:8000/diseases/" + diseaseId)
             .subscribe(() => {
-                console.log('Deleted: ' + DiseasesId);
+                console.log('Deleted: ' + diseaseId);
             });
         location.reload();
     }

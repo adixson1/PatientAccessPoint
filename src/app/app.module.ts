@@ -18,6 +18,11 @@ import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DoctorService } from './doctor.service';
 import { AppointmentService } from './appointment.service';
 import { DiseaseService } from './disease.service';
+import { InfoPatientComponent } from './info-patient/info-patient.component';
+import { InfoDoctorComponent } from './info-doctor/info-doctor.component';
+import { AllPatientsComponent } from './all-patients/all-patients.component';
+import { InfoAppointmentComponent } from './info-appointment/info-appointment.component';
+import { InfoDiseaseComponent } from './info-disease/info-disease.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { DiseaseService } from './disease.service';
     AppointmentComponent,
     DoctorInfoComponent,
     SicknessDiseaseInfoComponent,
-    HomePageComponent
+    HomePageComponent,
+    InfoPatientComponent,
+    InfoDoctorComponent,
+    AllPatientsComponent,
+    InfoAppointmentComponent,
+    InfoDiseaseComponent
   ],
   imports: [
     BrowserModule,

@@ -30,10 +30,10 @@ export class PatientService {
             });
     }
 
-    deletePatient(PatientsId: string) {
-        this.http.delete("http://localhost:8000/patients/" + PatientsId)
+    deletePatient(patientId: string) {
+        this.http.delete("http://localhost:8000/patients/" + patientId)
             .subscribe(() => {
-                console.log('Deleted: ' + PatientsId);
+                console.log('Deleted: ' + patientId);
             });
         location.reload();
     }

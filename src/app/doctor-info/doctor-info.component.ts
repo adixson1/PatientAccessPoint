@@ -14,6 +14,9 @@ export class DoctorInfoComponent implements OnInit {
 @Input() email1: string="";
 @Input() phoneNumber1: string="";
 @Input() doctor1: string="";
+@Input() reasonForVisit: string="";
+@Input() symptoms: string="";
+@Input() doctor: string="";
 
   constructor(private _myService: DoctorService) { }
 
@@ -35,6 +38,6 @@ export class DoctorInfoComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.doctorInfoForm.value);
-    this._myService.addDoctors(this.firstName1,this.lastName1, this.email1);
+    this._myService.addDoctors(this.firstName1,this.lastName1, this.email1, this.reasonForVisit, this.symptoms, this.doctor, this.phoneNumber1);
   }
 }
