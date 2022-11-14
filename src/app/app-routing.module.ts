@@ -5,14 +5,21 @@ import { DoctorInfoComponent } from './doctor-info/doctor-info.component';
 import { SicknessDiseaseInfoComponent } from './sickness-disease-info/sickness-disease-info.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { AllPatientsComponent } from './all-patients/all-patients.component';
+import { InfoPatientComponent } from './info-patient/info-patient.component';
+import { InfoDoctorComponent } from './info-doctor/info-doctor.component';
+import { InfoDiseaseComponent } from './info-disease/info-disease.component';
+import { InfoAppointmentComponent } from './info-appointment/info-appointment.component';
 
 const routes: Routes = [
   {path: 'appointment', component: AppointmentComponent},
   {path: 'doctor-info', component: DoctorInfoComponent},
   {path: 'patient-info', component:PatientInfoComponent},
   {path: 'sickness-disease-info', component:SicknessDiseaseInfoComponent},
-  {path: '', component: HomePageComponent}
+  {path: '', component: HomePageComponent},
+  {path: 'info-patients', component: InfoPatientComponent},
+  {path: 'info-doctors', component:InfoDoctorComponent},
+  {path: 'info-disease', component:InfoDiseaseComponent},
+  {path: 'info-appointments', component:InfoAppointmentComponent}
   
 ];
 

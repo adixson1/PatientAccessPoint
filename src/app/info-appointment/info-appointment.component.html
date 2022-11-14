@@ -1,6 +1,9 @@
-
+<br>
+<br>
+<br>
+<div class="col-lg-6 offset-lg-3 ">
     <h1>Appointment Info</h1>
-
+<br>
     <div>
         <ul *ngFor ="let appointment of appointments let i = index">
             <li> {{appointment._id}}: {{appointment.firstName}} {{appointment.lastName}} 
@@ -8,4 +11,4 @@
                 <button mat-button color="accent" [routerLink]="['/editappointment', appointment._id]">UPDATE</button></li>
         </ul>
       </div>
-    
+    </div>
