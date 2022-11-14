@@ -9,6 +9,7 @@ import { InfoPatientComponent } from './info-patient/info-patient.component';
 import { InfoDoctorComponent } from './info-doctor/info-doctor.component';
 import { InfoDiseaseComponent } from './info-disease/info-disease.component';
 import { InfoAppointmentComponent } from './info-appointment/info-appointment.component';
+import { AllPatientsComponent } from './all-patients/all-patients.component';
 
 const routes: Routes = [
   {path: 'appointment', component: AppointmentComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'info-patients', component: InfoPatientComponent},
   {path: 'info-doctors', component:InfoDoctorComponent},
   {path: 'info-diseases', component:InfoDiseaseComponent},
-  {path: 'info-appointments', component:InfoAppointmentComponent}
+  {path: 'info-appointments', component:InfoAppointmentComponent},
+  {path: 'allpatients', component:AllPatientsComponent}
 ];
 
 @NgModule({

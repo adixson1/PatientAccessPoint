@@ -44,6 +44,23 @@ app.get('/patients', (req, res, next) => {
 
 
 });
+
+//find a patient based on the id
+app.get('/patients/:id', (req, res, next) => {
+    //call mongoose method findOne (MongoDB db.patients.findOne())
+    Patient.findOne({_id: req.params.id}) 
+        //if data is returned, send data as a response 
+        .then(data => {
+            res.status(200).json(data)
+            console.log(data);
+        })
+        //if error, send internal server error
+        .catch(err => {
+        console.log('Error: ${err}');
+        res.status(500).json(err);
+    });
+});
+
 app.post('/patients', (req, res, next) => {
     // create a new patient variable and save request’s fields 
     const patient = new Patient({
@@ -77,6 +94,36 @@ app.delete("/patients/:id", (req, res, next) => {
         res.status(200).json("Deleted!");
     });
 });
+
+//serve incoming put requests to /appointments 
+app.put('/appointments/:id', (req, res, next) => { 
+    console.log("id: " + req.params.id) 
+    // check that the parameter id is valid 
+    if (mongoose.Types.ObjectId.isValid(req.params.id)) { 
+        //find a document and set new first and last names 
+        Appointment.findOneAndUpdate( 
+            {_id: req.params.id}, 
+            {$set:{ 
+                firstName : req.body.firstName, 
+                lastName : req.body.lastName 
+            }}, 
+            {new:true} 
+        ) 
+        .then((appointment) => { 
+            if (appointment) { //what was updated 
+                console.log(appointment); 
+            } else { 
+                console.log("no data exist for this id"); 
+            } 
+        }) 
+        .catch((err) => { 
+            console.log(err); 
+        }); 
+    } else { 
+        console.log("please provide correct id"); 
+    } 
+});
+
 
 //in the app.get() method below we add a path for the patients API 
 //by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
@@ -180,6 +227,21 @@ app.get('/doctors', (req, res, next) => {
 
 
 });
+
+app.get('/doctors/:id', (req, res, next) => {
+    //call mongoose method findOne (MongoDB db.doctors.findOne())
+    Doctor.findOne({_id: req.params.id}) 
+        //if data is returned, send data as a response 
+        .then(data => {
+            res.status(200).json(data)
+            console.log(data);
+        })
+        //if error, send internal server error
+        .catch(err => {
+        console.log('Error: ${err}');
+        res.status(500).json(err);
+    });
+});
 app.post('/doctors', (req, res, next) => {
     // create a new patient variable and save request’s fields 
     const doctor = new Doctor({
@@ -206,6 +268,34 @@ app.delete("/doctors/:id", (req, res, next) => {
     });
 });
 
+app.put('/doctors/:id', (req, res, next) => { 
+    console.log("id: " + req.params.id) 
+    // check that the parameter id is valid 
+    if (mongoose.Types.ObjectId.isValid(req.params.id)) { 
+        //find a document and set new first and last names 
+        Doctor.findOneAndUpdate( 
+            {_id: req.params.id}, 
+            {$set:{ 
+                firstName : req.body.firstName, 
+                lastName : req.body.lastName 
+            }}, 
+            {new:true} 
+        ) 
+        .then((doctor) => { 
+            if (doctor) { //what was updated 
+                console.log(doctor); 
+            } else { 
+                console.log("no data exist for this id"); 
+            } 
+        }) 
+        .catch((err) => { 
+            console.log(err); 
+        }); 
+    } else { 
+        console.log("please provide correct id"); 
+    } 
+});
+
 //in the app.get() method below we add a path for the patients API 
 //by adding /patients, we tell the server that this method will be called every time http://localhost:8000/patients is requested. 
 app.get('/diseases', (req, res, next) => {
@@ -222,6 +312,23 @@ app.get('/diseases', (req, res, next) => {
 
 
 });
+
+//find a disease based on the id
+app.get('/diseases/:id', (req, res, next) => {
+    //call mongoose method findOne (MongoDB db.diseases.findOne())
+    Disease.findOne({_id: req.params.id}) 
+        //if data is returned, send data as a response 
+        .then(data => {
+            res.status(200).json(data)
+            console.log(data);
+        })
+        //if error, send internal server error
+        .catch(err => {
+        console.log('Error: ${err}');
+        res.status(500).json(err);
+    });
+});
+
 app.post('/diseases', (req, res, next) => {
     // create a new patient variable and save request’s fields 
     const disease = new Disease({
@@ -248,6 +355,35 @@ app.delete("/diseases/:id", (req, res, next) => {
         console.log(result);
         res.status(200).json("Deleted!");
     });
+});
+
+//serve incoming put requests to /diseases 
+app.put('/diseases/:id', (req, res, next) => { 
+    console.log("id: " + req.params.id) 
+    // check that the parameter id is valid 
+    if (mongoose.Types.ObjectId.isValid(req.params.id)) { 
+        //find a document and set new first and last names 
+        Disease.findOneAndUpdate( 
+            {_id: req.params.id}, 
+            {$set:{ 
+                firstName : req.body.firstName, 
+                lastName : req.body.lastName 
+            }}, 
+            {new:true} 
+        ) 
+        .then((disease) => { 
+            if (disease) { //what was updated 
+                console.log(disease); 
+            } else { 
+                console.log("no data exist for this id"); 
+            } 
+        }) 
+        .catch((err) => { 
+            console.log(err); 
+        }); 
+    } else { 
+        console.log("please provide correct id"); 
+    } 
 });
 
 

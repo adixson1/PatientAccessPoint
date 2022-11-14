@@ -43,8 +43,8 @@ export class DiseaseService {
             });
     }
       //Uses http.get() to request data based on Patients id 
-      getDisease(DiseasesId: string) {
-        return this.http.get('http://localhost:8000/diseases/' + DiseasesId);
+      getDisease(diseaseId: string) {
+        return this.http.get('http://localhost:8000/diseases/' + diseaseId);
     }
 
 }

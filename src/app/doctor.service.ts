@@ -32,17 +32,17 @@ deleteDoctor(doctorId: string) {
         });
     location.reload();
 }
-updateDoctor(doctorsId: string, firstName: string, lastName: string) {
+updateDoctor(doctorId: string, firstName: string, lastName: string) {
     //request path http://localhost:8000/Patientss/5xbd456xx 
     //first and last names will be send as HTTP body parameters 
     this.http.put("http://localhost:8000/doctors/" +
-        doctorsId, { firstName, lastName })
+        doctorId, { firstName, lastName })
         .subscribe(() => {
-            console.log('Updated: ' + doctorsId);
+            console.log('Updated: ' + doctorId);
         });
 }
 //Uses http.get() to request data based on Patients id 
-getDoctor(DoctorsId: string) {
-    return this.http.get('http://localhost:8000/doctors/' + DoctorsId);
+getDoctor(doctorId: string) {
+    return this.http.get('http://localhost:8000/doctors/' + doctorId);
 }
 }

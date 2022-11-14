@@ -32,13 +32,13 @@ export class AppointmentService {
             });
         location.reload();
     }
-    updateAppointment(AppointmentsId: string, firstName: string, lastName: string) {
+    updateAppointment(appointmentId: string, firstName: string, lastName: string) {
         //request path http://localhost:8000/Appointments/5xbd456xx 
         //first and last names will be send as HTTP body parameters 
         this.http.put("http://localhost:8000/appointments/" +
-            AppointmentsId, { firstName, lastName })
+            appointmentId, { firstName, lastName })
             .subscribe(() => {
-                console.log('Updated: ' + AppointmentsId);
+                console.log('Updated: ' + appointmentId);
             });
     }
     //Uses http.get() to request data based on Patients id 

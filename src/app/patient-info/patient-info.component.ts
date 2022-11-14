@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PatientService } from 'src/app/patient.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-patient-info',
@@ -8,7 +9,7 @@ import { PatientService } from 'src/app/patient.service';
   styleUrls: ['./patient-info.component.css']
 })
 export class PatientInfoComponent implements OnInit {
-  
+
   @Input() firstName: string = "";
   @Input() firstName1: string = "";
   @Input() lastName: string = "";
@@ -26,11 +27,39 @@ export class PatientInfoComponent implements OnInit {
   @Input() socialSecurityNumber: string = "";
   @Input() relationship: string = "";
 
+  public mode = 'Add';
+  private id: any;
+  private patient: any;
 
-  constructor(private _myService: PatientService) { }
+  constructor(private _myService: PatientService, public route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    this.route.paramMap.subscribe((paramMap: ParamMap ) => {
+      if (paramMap.has('_id')){
+          this.mode = 'Edit'; /*request had a parameter _id */ 
+          this.id = paramMap.get('_id');
+
+           //request patient info based on the id
+          this._myService.getPatient(this.id).subscribe(
+              data => { 
+                  //read data and assign to private variable patient
+                  this.patient = data;
+                  //populate the firstName and lastName on the page
+                  //notice that this is done through the two-way bindings
+                  this.firstName = this.patient.firstName;
+                  this.lastName = this.patient.lastName;
+              },
+              err => console.error(err),
+              () => console.log('finished loading')
+          );
+      } 
+      else {
+          this.mode = 'Add';
+          this.id = null; 
+      }
+  });
+}
+
 
   patientInfoForm = new FormGroup({
     firstName: new FormControl(''),
@@ -62,8 +91,11 @@ export class PatientInfoComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.patientInfoForm.value);
-    this._myService.addPatients(this.firstName, this.lastName, this.dob, this.phoneNumber,
-      this.maritalStatus, this.street, this.city, this.state, this.zip, this.primaryInsurance, this.groupNumber,
-      this.idNumber, this.socialSecurityNumber);
+    if (this.mode == 'Add')
+      this._myService.addPatients(this.firstName, this.lastName, this.dob, this.phoneNumber,
+        this.maritalStatus, this.street, this.city, this.state, this.zip, this.primaryInsurance, this.groupNumber,
+        this.idNumber, this.socialSecurityNumber);
+    if (this.mode == 'Edit')
+      this._myService.updatePatient(this.id, this.firstName, this.lastName);
   }
 }

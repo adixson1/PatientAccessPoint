@@ -49,7 +49,7 @@ export class PatientService {
     }
 
     //Uses http.get() to request data based on Patients id 
-    getPatient(PatientsId: string) {
-        return this.http.get('http://localhost:8000/patients/' + PatientsId);
+    getPatient(patientId: string) {
+        return this.http.get('http://localhost:8000/patients/' + patientId);
     }
 }
