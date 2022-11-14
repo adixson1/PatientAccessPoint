@@ -200,6 +200,14 @@ app.post('/diseases', (req, res, next) => {
         .catch(err => { console.log('Error: ' + err); });
 });
 
+//:id is a dynamic parameter that will be extracted from the URL
+app.delete("/diseases/:id", (req, res, next) => {
+    Disease.deleteOne({ _id: req.params.id }).then(result => {
+        console.log(result);
+        res.status(200).json("Deleted!");
+    });
+});
+
 
 //to use this middleware in other parts of the application
 module.exports = app;

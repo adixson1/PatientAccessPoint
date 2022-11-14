@@ -23,6 +23,7 @@ import { InfoDoctorComponent } from './info-doctor/info-doctor.component';
 import { AllPatientsComponent } from './all-patients/all-patients.component';
 import { InfoAppointmentComponent } from './info-appointment/info-appointment.component';
 import { InfoDiseaseComponent } from './info-disease/info-disease.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { InfoDiseaseComponent } from './info-disease/info-disease.component';
     InfoDoctorComponent,
     AllPatientsComponent,
     InfoAppointmentComponent,
-    InfoDiseaseComponent
+    InfoDiseaseComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

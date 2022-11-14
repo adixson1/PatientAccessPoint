@@ -15,21 +15,17 @@ export class InfoDiseaseComponent implements OnInit {
   ngOnInit() {
     this.getDiseases();
   }
-  getDiseases() {
-    throw new Error('Method not implemented.');
-  }
-  //method called OnInit
-  getdisesases() {
+
+  getDiseases(){
     this._myService.getDiseases().subscribe(
-        //read data and assign to public variable disesases
-        data => { this.diseases = data},
-        err => console.error(err),
-        () => console.log('finished loading')
+
+      data=> { this.diseases= data},
+      err=> console.error(err),
+      () => console.log('finished loading')
     );
-
-  }  
-  onDelete(diseaseId: string) {
+  
+  }
+  onDelete(diseaseId: string){
     this._myService.deleteDisease(diseaseId);
-}
-
+  }
 }

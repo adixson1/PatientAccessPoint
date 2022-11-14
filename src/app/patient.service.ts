@@ -38,13 +38,13 @@ export class PatientService {
         location.reload();
     }
 
-    updatePatient(PatientsId: string, firstName: string, lastName: string) {
+    updatePatient(patientId: string, firstName: string, lastName: string) {
         //request path http://localhost:8000/Patientss/5xbd456xx 
         //first and last names will be send as HTTP body parameters 
         this.http.put("http://localhost:8000/patients/" +
-            PatientsId, { firstName, lastName })
+            patientId, { firstName, lastName })
             .subscribe(() => {
-                console.log('Updated: ' + PatientsId);
+                console.log('Updated: ' + patientId);
             });
     }
 

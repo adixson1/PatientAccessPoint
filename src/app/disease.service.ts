@@ -32,14 +32,14 @@ export class DiseaseService {
             });
         location.reload();
     }
-    updateDisease(diseasesId: string, firstName: string, lastName: string,dob: string, Asthma: string,
+    updateDisease(diseaseId: string, firstName: string, lastName: string,dob: string, Asthma: string,
         Migrane: string, Pregnancy: string, HeartDisease:string, BloodPressure:string) {
         //request path http://localhost:8000/Patientss/5xbd456xx 
         //first and last names will be send as HTTP body parameters 
         this.http.put("http://localhost:8000/diseases/" +
-            diseasesId, { firstName, lastName, dob, Asthma, Migrane, Pregnancy, HeartDisease, BloodPressure })
+            diseaseId, { firstName, lastName, dob, Asthma, Migrane, Pregnancy, HeartDisease, BloodPressure })
             .subscribe(() => {
-                console.log('Updated: ' + diseasesId);
+                console.log('Updated: ' + diseaseId);
             });
     }
       //Uses http.get() to request data based on Patients id 
