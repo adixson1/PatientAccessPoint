@@ -154,7 +154,7 @@ app.get('/diseases', (req, res, next) => {
 });
 app.post('/diseases', (req, res, next) => {
     // create a new patient variable and save request’s fields 
-    const disease = new Diseases({
+    const disease = new Disease({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         dob: req.body.dob,
