@@ -1,0 +1,48 @@
+<div class="content-container">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        Search:
+        <input type="text" formControlName="keyword">
+        <span>&nbsp;</span>
+        <button type="submit" (submit)="onSubmit()">Go</button>
+    </form>
+    <br>
+    <div *ngIf="condition">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let video of videos.items let i = index">
+        
+                <td> {{ i }}</td>
+                <td> {{ video.volumeInfo.title }}</td>
+                <td> {{video.volumeInfo.industryIdentifiers[0].identifier}} </td>
+                <td>
+                  <button class="btn btn-primary" (click)="selectVideo(video.id)"> Show details</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="card text-center" *ngIf="selectedVideo">
+        <div class="card-header">
+        Video Details
+        </div>
+        <div class="card-block">
+        <h4 class="card-title">{{selectedvideo.volumeInfo.title}}</h4>
+        <div class="card-text">
+            {{selectedVideo.volumeInfo.description}}
+            <p>{{selectedVideo.volumeInfo.authors}}</p>
+            <p>{{selectedVideo.volumeInfo.publisher}}</p>
+            <p>{{selectedVideo.volumeInfo.publishedDate}}</p>
+            <img src={{selectedVideo.volumeInfo.imageLinks.thumbnail}}>
+        </div>    
+        </div>
+
+    </div>
+</div>

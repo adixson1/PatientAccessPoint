@@ -24,6 +24,7 @@ import { AllPatientsComponent } from './all-patients/all-patients.component';
 import { InfoAppointmentComponent } from './info-appointment/info-appointment.component';
 import { InfoDiseaseComponent } from './info-disease/info-disease.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { VideoSearchComponent } from './video-search/video-search.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AllPatientsComponent,
     InfoAppointmentComponent,
     InfoDiseaseComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    VideoSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,48 @@
+<div class="content-container wrapper flex-grow-1">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        Search:
+        <input type="text" formControlName="keyword">
+        <span>&nbsp;</span>
+        <button type="submit" (submit)="onSubmit()">Go</button>
+    </form>
+    <br>
+    <div *ngIf="condition">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let book of books.items let i = index">
+        
+                <td> {{ i }}</td>
+                <td> {{ book.volumeInfo.title }}</td>
+                <td> {{book.volumeInfo.industryIdentifiers[0].identifier}} </td>
+                <td>
+                  <button class="btn btn-primary" (click)="selectBook(book.id)"> Show details</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="card text-center" *ngIf="selectedBook">
+        <div class="card-header">
+        Book Details
+        </div>
+        <div class="card-block">
+        <h4 class="card-title">{{selectedBook.volumeInfo.title}}</h4>
+        <div class="card-text">
+            {{selectedBook.volumeInfo.description}}
+            <p>{{selectedBook.volumeInfo.authors}}</p>
+            <p>{{selectedBook.volumeInfo.publisher}}</p>
+            <p>{{selectedBook.volumeInfo.publishedDate}}</p>
+            <img src={{selectedBook.volumeInfo.imageLinks.thumbnail}}>
+        </div>    
+        </div>
+
+    </div>
+</div>

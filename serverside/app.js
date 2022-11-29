@@ -10,7 +10,7 @@ const Doctor= require('./models/doctor')
 const Disease=require('./models/disease')
 
 //connect and display the status 
-mongoose.connect('mongodb://localhost:27017/IT6203', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://ayara:it6203@cluster0.jgduy0z.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => { console.log("connected"); })
     .catch(() => { console.log("error connecting"); });
 

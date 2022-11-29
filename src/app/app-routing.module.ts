@@ -10,6 +10,7 @@ import { InfoDoctorComponent } from './info-doctor/info-doctor.component';
 import { InfoDiseaseComponent } from './info-disease/info-disease.component';
 import { InfoAppointmentComponent } from './info-appointment/info-appointment.component';
 import { AllPatientsComponent } from './all-patients/all-patients.component';
+import { VideoSearchComponent } from './video-search/video-search.component';
 
 const routes: Routes = [
   {path: 'appointment', component: AppointmentComponent},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'doctor-info', component: DoctorInfoComponent},
   {path: 'editdoctor/:_id', component: DoctorInfoComponent},
   {path: 'patient-info', component:PatientInfoComponent},
-  {path: 'editpatient/:_id', component:PatientInfoComponent},
+  {path: '', component:PatientInfoComponent},
   {path: 'sickness-disease-info', component:SicknessDiseaseInfoComponent},
   {path: 'editdisease/:_id', component:SicknessDiseaseInfoComponent},
   {path: '', component: HomePageComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'info-doctors', component:InfoDoctorComponent},
   {path: 'info-diseases', component:InfoDiseaseComponent},
   {path: 'info-appointments', component:InfoAppointmentComponent},
-  {path: 'allpatients', component:AllPatientsComponent}
+  {path: 'allpatients', component:AllPatientsComponent},
+  {path: 'video-search', component:VideoSearchComponent}
 ];
 
 @NgModule({
