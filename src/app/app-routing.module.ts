@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'doctor-info', component: DoctorInfoComponent},
   {path: 'editdoctor/:_id', component: DoctorInfoComponent},
   {path: 'patient-info', component:PatientInfoComponent},
-  {path: '', component:PatientInfoComponent},
+  {path: 'editpatient/:_id', component:PatientInfoComponent},
   {path: 'sickness-disease-info', component:SicknessDiseaseInfoComponent},
   {path: 'editdisease/:_id', component:SicknessDiseaseInfoComponent},
   {path: '', component: HomePageComponent},

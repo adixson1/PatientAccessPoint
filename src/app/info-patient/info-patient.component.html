@@ -6,8 +6,8 @@
 
 <div>
     <ul *ngFor ="let patient of patients let i = index">
-        <li> {{patient._id}}: {{patient.firstName}} {{patient.lastName}} 
-            (index {{i}})<button mat-button color="warn" (click)="onDelete(patient._id)">DELETE</button>
+        <li> {{i}}) {{patient.firstName}} {{patient.lastName}} 
+            <button mat-button color="warn" (click)="onDelete(patient._id)">DELETE</button>
             <button mat-button color="accent" [routerLink]="['/editpatient', patient._id]">UPDATE</button></li>
     </ul>
   </div>
